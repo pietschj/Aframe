@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <img
+          id="ImgEarth"
+          src="https://cdn.glitch.com/e3f209ca-588e-463f-b3cd-7379febc0239%2Fearth_atmos_4096.jpg?v=1631737973931"
+          crossorigin="anonymous"
+        />
+        <img
+          id="ImgClouds"
+          src="https://cdn.glitch.com/e3f209ca-588e-463f-b3cd-7379febc0239%2Fearth_clouds_2048.png?v=1631739587364"
+          crossorigin="anonymous"
+        />
+        <img
+          id="ImgMoon"
+          src="https://cdn.glitch.com/e3f209ca-588e-463f-b3cd-7379febc0239%2Fmoon_1024.jpg?v=1631781009367"
+          crossorigin="anonymous"
+        />
+        <img
+          id="ImgSky"
+          src="https://cdn.glitch.com/e3f209ca-588e-463f-b3cd-7379febc0239%2Fnightsky.jpg?v=1631740300486"
+          crossorigin="anonymous"
+        />
+      </a-assets>
+
+      <!-- Let's start using a custom camera so we can put the sun in the
+            middle and still see it-->
+      <a-entity position="-5 5 5" rotation="-13 0 0">
+        <a-entity camera look-controls wasd-controls></a-entity>
+      </a-entity>
+
+      <!-- Earth -->
+      <a-entity id="earthMoon" position="0 1.25 -5">
+        <a-sphere
+          id="globe"
+          src="#ImgEarth"
+          radius="1.5"
+          animation="property: rotation;
+                               to: 0 360 0;
+                               loop: true;
+                               dur: 15000;
+                               easing: linear"
+        >
+        </a-sphere>
+        <!-- Clouds -->
+        <a-sphere
+          id="clouds"
+          src="#ImgClouds"
+          radius="1.52"
+          opacity=".99"
+          animation="property: rotation;
+                             to: 15 360 0;
+                             loop: true;
+                             dur: 10000;
+                             easing: linear"
+        >
+          <!-- Moon -->
+          <a-sphere
+            src="#ImgMoon"
+            position="5 0 0"
+            radius=".35"
+            animation="property: rotation;
+                        to=0 360 0; 
+                        easing=linear;         
+                        dur=1000"
+          >
+          </a-sphere>
+        </a-sphere>
+      </a-entity>
+
+      <a-sky
+        src="#ImgSky"
+        animation="property: rotation;
+                             from: 0 -90 -1;
+                             to: 0 270 0;
+                             loop: true;
+                             dur: 2000000;
+                             easing: linear;
+                             repeat: indefinite"
+      >
+      </a-sky>
+    </a-scene>
+  </body>
+</html>

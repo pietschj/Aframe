@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <img
+          id="ImgEarth"
+          src="../assets/earth_atmos_4096.jpg"
+          crossorigin="anonymous"
+        />
+        <img
+          id="ImgClouds"
+          src="../assets/earth_clouds_2048.png"
+          crossorigin="anonymous"
+        />
+        <img
+          id="ImgMoon"
+          src="../assets/moon_1024.jpg"
+          crossorigin="anonymous"
+        />
+        <img
+          id="ImgSun"
+          src="../assets/1024px-Map_of_the_full_sun.jpg"
+          crossorigin="anonymous"
+        />
+
+        <img
+          id="ImgSky"
+          src="../assets/nightsky.jpg"
+          crossorigin="anonymous"
+        />
+      </a-assets>
+
+      <!-- Let's start using a custom camera so we can put the sun in the
+            middle and still see it-->
+      <a-entity position="21  0  -16" rotation="0 155 0">
+        <a-entity camera look-controls wasd-controls></a-entity>
+      </a-entity>
+
+      <a-entity id="sun" position="0 0 0">
+        <a-sphere id="sunSp" src="#ImgSun" radius="2.5"></a-sphere>
+        >
+      </a-entity>
+
+      <!-- Earth -->
+      <!-- a-text font="kelsonsans" value="Earth" width="6" position="-0.40405 1.82729 0"  text="color: #ea2e2e"></a-text-->
+      <a-entity id="earthMoon" animation="property: rotation; to: 0 360 0; loop:
+      true; dur: 750000; >
+      <a-entity
+        id="earthCloud"
+        position="12 0 0"
+        animation="property: rotation;
+                               to: 0 360 0;
+                               loop: true;
+                               dur: 15000;
+                               easing: linear"
+      >
+        <a-text
+          font="roboto"
+          value="Earth"
+          width="16"
+          position="0.5 1.8 0"
+          rotation="0 180 0"
+          text="color: #ea2e2e; side: double"
+        >
+        </a-text>
+
+        <a-sphere id="globe" src="#ImgEarth" radius="1.5"> </a-sphere>
+        <!-- Clouds -->
+        <a-sphere
+          id="clouds"
+          src="#ImgClouds"
+          radius="1.52"
+          opacity=".99"
+          animation="property: rotation;
+                             to: 15 360 0;
+                             loop: true;
+                             dur: 10000;
+                             easing: linear"
+        >
+          <!-- Moon entity nested inside clouds-->
+          <a-entity
+            id="moon"
+            position="5 0 0"
+            animation="property: rotation;
+                        to=0 360 0; 
+                        easing=linear;         
+                        dur=1000"
+          >
+            <a-text
+              font="kelsonsans"
+              value="Moon"
+              width="6"
+              position="0.5 0.8 0"
+              rotation="0 180 0"
+              text="color: #00ff00; side:  double"
+            ></a-text>
+
+            <a-sphere src="#ImgMoon" radius=".35"> </a-sphere>
+          </a-entity>
+        </a-sphere>
+      </a-entity>
+      <!--/a-entity-->
+
+      <a-sky
+        src="#ImgSky"
+        animation="property: rotation;
+                             from: 0 -90 -1;
+                             to: 0 270 0;
+                             loop: true;
+                             dur: 2000000;
+                             easing: linear;
+                             repeat: indefinite"
+      >
+      </a-sky>
+    </a-scene>
+  </body>
+</html>
