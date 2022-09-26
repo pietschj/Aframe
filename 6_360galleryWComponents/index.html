@@ -1,0 +1,198 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-animation-component@^5.1.2/dist/aframe-animation-component.min.js"></script>
+    <script src="/js/backhome.js"></script>
+    <script src="/js/sphereexpand.js"></script>
+    <script src="/js/componentstarter.js"></script>
+    
+  </head>
+
+  <body>
+    <a-scene>
+      <a-assets>
+        <img
+          id="woodfloor"
+          src="/assets/dark wood texture.jpg"
+        />
+        <img
+          id="wall"
+          src="/assets/whiteBricks.jpg"
+        />
+
+        <img
+          id="Wicklow00"
+          src="/assets/WicklowPier00.jpg"
+        />
+        <img
+          id="Wicklow01"
+          src="/assets/WicklowPier01.jpg"
+        />
+        <img
+          id="Wicklow02"
+          src="/assets/WicklowPier02.jpg"
+        />
+      </a-assets>
+
+      <a-entity
+        id="camera"
+        position="0 1.6 0"
+        camera
+        look-controls
+        wasd-controls
+      >
+        <a-entity cursor="rayOrigin: mouse"></a-entity>
+      </a-entity>
+
+      <a-entity laser-controls="hand:right"></a-entity>
+
+      <a-sky id="sky"></a-sky>
+
+      <a-entity id="architecture" class="homeworld">
+        <a-plane
+          id="floor"
+          rotation="-90 90 0"
+          width="30"
+          height="30"
+          src="#woodfloor"
+          repeat="4 4"
+        
+        ></a-plane>
+        <a-plane
+          position="0 5 -15"
+          width="30"
+          height="10"
+          src="#wall"
+          repeat="2 1"
+        ></a-plane>
+        <a-plane
+          position="-2.5 5 15"
+          rotation="0 180 0"
+          width="40"
+          height="10"
+          src="#wall"
+          repeat="2 1"
+        ></a-plane>
+        <a-plane
+          position="-15 5 0"
+          rotation="0 90 0"
+          width="30"
+          height="10"
+          src="#wall"
+          repeat="2 1"
+        ></a-plane>
+        <a-plane
+          position="15 5 0"
+          rotation="0 -90 0"
+          width="30"
+          height="10"
+          src="#wall"
+          repeat="2 1"
+        ></a-plane>
+        <a-plane
+          id="ceiling"
+          position="0 10 0"
+          scale="1 1 1"
+          width="30"
+          height="30"
+          rotation="90 0 0"
+          material="metalness:1; roughness:0; transparent: true; opacity: .7; shader: standard; 
+           color: #faaf52; side:double;"
+        ></a-plane>
+      </a-entity>
+
+      <a-entity class="homeworld" scale="3 3 3" position="0 3 -12">
+        <a-plane
+          id="Title"
+          position="0 0 0"
+          rotation=""
+          height=".6"
+          width="auto"
+          color="#191817"
+          text="value:Views from Wicklow harbour;width:2;wrapCount:30;align:center"
+          material=""
+          geometry="width:2"
+        ></a-plane>
+      </a-entity>
+
+      <a-entity
+        id="photospheredisplay0"
+        class="homeworld"
+        position="-4.7 0 -4.4"
+        rotation="0, 0 0"
+      >
+        <a-box
+          color="black"
+          rotation="0 0 0"
+          width="1"
+          height="2"
+          depth=".5"
+        ></a-box>
+        <a-sphere
+          position="0 1.8 0"
+          radius=".7"
+          src="#Wicklow02"
+          sphereexpand
+          animation="property: rotation; to: 0 360 0; easing: easeInOutSine; dur: 30000; loop: true; elasticity: 0"
+        ></a-sphere>
+        <a-plane
+          id="photospherecaption0"
+          position=".5 .5 .5"
+          rotation="-25 35 0"
+          height=".6"
+          width="auto"
+          color="#191817"
+          text="value: This photosphere from Wicklow was taken by Joachim Pietsch; width: 2; wrapCount: 30; align: center"
+        ></a-plane>
+      </a-entity>
+
+      <a-entity
+        id="photospheredisplay1"
+        class="homeworld"
+        position="4.7 0 -4.4"
+        rotation="0 -45 0"
+        >>
+        <a-box
+          color="black"
+          rotation="0 -55 0"
+          width="1"
+          height="2"
+          depth=".5"
+        ></a-box>
+        <a-sphere
+          position="0 1.8 0"
+          radius=".7"
+          src="#Wicklow01"
+          sphereexpand
+          animation="property: rotation; to: 0 360 0; easing: easeInOutSine; dur: 30000; loop: true; elasticity: 0"
+        ></a-sphere>
+        <a-plane
+          id="photospherecaption1"
+          position=".5 .5 .5"
+          rotation="-25 35 0"
+          height=".6"
+          width="auto"
+          color="#191817"
+          text="value: This photosphere from Wicklow was also taken  by Joachim Pietsch; width: 2; wrapCount: 30; align: center"
+        ></a-plane>
+      </a-entity>
+
+      <a-entity id="photospheredisplay2" class="homeworld" position="-3.91417 0 3.41303" rotation="0 90 0">
+
+        <a-box color="black" rotation="" width="1" height="2" depth=".5" material="" geometry=""></a-box>
+        
+        <a-sphere position="0 1.8 0" radius=".7" src="#Wicklow00" sphereexpand="" animation="property: rotation; to: 0 360 0; easing: easeInOutSine; dur: 30000; loop: true; elasticity: 0" material="" geometry=""></a-sphere>
+        
+        <a-plane id="photospherecaption2" position="0.51735 0.5 0.5" rotation="-25 35 0" height=".6" width="auto" color="#191817" text="value: 2 photosphere from Wicklow was taken by Joachim Pietsch; width: 2; wrapCount: 30; align: center" material="side: double" geometry="width: 2"></a-plane>
+
+    </a-entity>
+
+      <a-circle
+        id="homebutton"
+        position="0 .1 0"
+        rotation="-90 0 0"
+        backhome
+      ></a-circle>
+    </a-scene>
+  </body>
+</html>
